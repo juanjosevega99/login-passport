@@ -1,12 +1,11 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt-nodejs');
-const passport = require('passport');
 
 const { Schema } = mongoose
 
 const userSchema = new Schema({
   email: String,
-  password: String,
+  password: String
 })
 
 userSchema.methods.encryptPassword = (password) => {

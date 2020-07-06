@@ -24,7 +24,7 @@ router.post('/signin', passport.authenticate('local-signin', {
   failureFlash: true
 }))
 
-router.get('/profile', isAuthenticate, (req, res, next) => {
+router.get('/profile', isAuthenticated, (req, res, next) => {
   res.render('profile')
 })
 
@@ -33,8 +33,8 @@ router.get('/logout', (req, res, next) => {
   res.redirect('/')
 })
 
-function isAuthenticate(req, res, next) {
-  if (req.isAuthenticate()) {
+function isAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
     return next()
   }
 

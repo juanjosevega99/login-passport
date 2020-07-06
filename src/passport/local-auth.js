@@ -23,7 +23,7 @@ passport.use('local-signup', new LocalStrategy({
   } else {
     const newUser = new User()
     newUser.email = email
-    newUser.passport = newUser.encryptPassword(password)
+    newUser.password = newUser.encryptPassword(password)
     await newUser.save()
     done(null, newUser)
   }
