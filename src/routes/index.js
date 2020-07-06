@@ -22,4 +22,8 @@ router.post('/signin', (req, res, next) => {
 
 })
 
+router.get('/profile', isAuthenticated, (req, res, next) => {
+  res.render('profile')
+})
+
 module.exports = router;
