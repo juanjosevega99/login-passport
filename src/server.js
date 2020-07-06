@@ -4,10 +4,14 @@ const path = require('path')
 const morgan = require('morgan')
 const passport = require('passport')
 const session = require('express-session')
+const db = require('./db')
 
 // initializations
 const app = express()
-require('./database')
+
+// ? Stablish database connection
+db.connect()
+// require('./database')
 require('./passport/local-auth')
 
 // settings
@@ -24,7 +28,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }))
-app.use(passport.initialize)
+app.use(passport.initialize())
 app.use(passport.session())
 
 // routes

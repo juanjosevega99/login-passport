@@ -19,7 +19,7 @@ passport.use('local-signup', new LocalStrategy({
 }, async (req, email, password, done) => {
   const user = await User.findOne({ 'email': email })
   if (user) {
-    return done(null, false, req.flash('signupMessage', 'The Email is already token'))
+    return done(null, false, req.flash('signupMessage', 'The Email is already taken.'))
   } else {
     const newUser = new User()
     newUser.email = email
