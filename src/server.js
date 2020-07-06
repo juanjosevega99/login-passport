@@ -5,6 +5,7 @@ const morgan = require('morgan')
 
 // initializations
 const app = express()
+require('./database')
 
 // settings
 app.set('views', path.join(__dirname, 'views'))
